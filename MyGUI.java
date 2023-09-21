@@ -36,40 +36,45 @@ public class MyGUI{
             public void actionPerformed(ActionEvent e) {
                 int numberGuessed = Integer.parseInt(numberField.getText());
 
-                if (numberGuessed == randomNumber) {
-                    message.setText("You guessed the correct number!");
-                    return;
-                }
-
-                if (randomNumber - 1 <= numberGuessed && numberGuessed <= randomNumber + 1) {
-                    message.setText("You are about to touch the sun");
-                    return;
-                }
-
-                if (randomNumber - 5 <= numberGuessed  && numberGuessed <= randomNumber + 5) {
-                    message.setText("OMG it's blazing hot in here...");
-                    return;
-                }
-
-                if (randomNumber - 10 <= numberGuessed  && numberGuessed <= randomNumber + 10) {
-                    message.setText("You're really getting warmer now!");
-                    return;
-                }
-
-                if (randomNumber - 25 <= numberGuessed && numberGuessed <= randomNumber + 25) {
-                    message.setText("You're getting kind of warmer...");
-                    return;
-                }
-
-                if (randomNumber - 50 <= numberGuessed || numberGuessed <= randomNumber + 50) {
-                    message.setText("You're really cold...");
-                    return;
-                }
+                guessingLogic(numberGuessed, randomNumber, message);
             }
         });
 
 
         panel.add(button);
         frame.setVisible(true);
+    }
+
+    public void guessingLogic(int numberGuessed, int randomNumber, JLabel message) {
+
+        if (numberGuessed == randomNumber) {
+            message.setText("You guessed the correct number!");
+            return;
+        }
+
+        if (randomNumber - 1 <= numberGuessed && numberGuessed <= randomNumber + 1) {
+            message.setText("You are literally about to touch the sun");
+            return;
+        }
+
+        if (randomNumber - 5 <= numberGuessed  && numberGuessed <= randomNumber + 5) {
+            message.setText("OMG it's hot in here...");
+            return;
+        }
+
+        if (randomNumber - 10 <= numberGuessed  && numberGuessed <= randomNumber + 10) {
+            message.setText("You're really getting warmer now!");
+            return;
+        }
+
+        if (randomNumber - 25 <= numberGuessed && numberGuessed <= randomNumber + 25) {
+            message.setText("You're getting kind of warmer...");
+            return;
+        }
+
+        if (randomNumber - 50 <= numberGuessed || numberGuessed <= randomNumber + 50) {
+            message.setText("You're really cold...");
+            return;
+        }
     }
 }
